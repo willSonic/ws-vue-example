@@ -6,11 +6,10 @@ import { Component } from "vue-typed";
 import VueRouter from "vue-router";
 import * as Logger from "js-logger";
 
-import { mapGetters, mapActions, ActionContext, Store } from "vuex";
+import { mapGetters, mapActions,ActionContext, Store } from "vuex";
 
 let Config = require("./config.json");
 
-//import store from "./vuex-typescript-store";
 import store from "./store";
 
 import Navbar from "./components/navbar";

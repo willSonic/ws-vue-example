@@ -27,24 +27,17 @@ export interface IGarmentList {
   limit: number;
   total: number;
   category: any;
-  products:Array<IGarment>;
+  products:IGarment[];
 }
-
-
-export interface GarmentState {
-    collections: IGarmentList[];
-    totalCollections: number;
-}
-
 
 export interface GarmentGetters {
-   getGarmentCollections: string
-   getGarmentListIds: string
+   collections: IGarmentList[],
+   totalCollections: number
 }
 
 export interface GarmentMutations {
     reset: {};
-    appendCollectionsn: {};
+    appendCollections: {};
     setTotalCollections: {};
 
 }
@@ -55,45 +48,42 @@ export interface GarmentActions {
     }
 }
 
+export interface GarmentState {
+    collections: IGarmentList[];
+    totalCollections: number;
+}
 
 const state:GarmentState ={
-   collections: <IGarmentList>[],
+   collections: [],
    totalCollections: 0
 }
 
-
-
 const getters: DefineGetters<GarmentGetters, GarmentState> = {
-        getGarmentCollections(state: IGarmentsCollectionsState) {
-            return state.collections;
-        },
-
-        getGarmentListIds(state: IGarmentsCollectionsState) {
-            return state.collections.length;
-        },
+        collections: (state:GarmentState) => state.collections,
+        totalCollections: (state:GarmentState) => state.totalCollections
 
 };
 
 const mutations: DefineMutations<GarmentMutations, GarmentState> = {
-        reset(state: IGarmentsCollectionsState) {
-            state.collections = <IGarmentList>[];
+        reset(state: GarmentState) {
+            state.collections = [];
             state.totalCollections = 0;
         },
 
-        appendCollections(state: IGarmentsCollectionsState, collection: { garmentList: IGarmentList }) {
+        appendCollections(state: GarmentState, collection: { garmentList: IGarmentList }) {
             console.log('collection  ', collection)
-            state.collections = [...state.collections, collection];
+            state.collections = [...state.collections, collection.garmentList];
         },
 
-        setTotalCollections(state: IGarmentsCollectionsState, totalCollections: number) {
+        setTotalCollections(state: GarmentState, totalCollections: number) {
             state.totalCollections = totalCollections;
         }
  };
 
 const  actions: DefineActions<GarmentActions, GarmentState,  GarmentMutations, GarmentGetters> = {
-  async fetchGarmentCollection ( { commit }, payload ) {
-       let newCollection =  await fetchStyleCollective(payload.garmentType);
-        let garments:IGarments[] = newCollection.data.products.map( (product)=>{
+  async fetchGarmentCollection( { commit }, payload ) {
+        let newCollection =  await fetchStyleCollective(payload.garmentType);
+        let garments:IGarment[] = newCollection.data.products.map( (product)=>{
                return   <IGarment>({
                                       id: product.id,
                                       name: product.name,
@@ -108,7 +98,6 @@ const  actions: DefineActions<GarmentActions, GarmentState,  GarmentMutations, G
                                       categories:product.categories
                                     });
            });
-       console.log("fetchGarmentCollection garmentList =", payload.garmentType);
         let garmentList:IGarmentList = <IGarmentList>({
                                               id: payload.garmentType,
                                               isSelected:newCollection.data.metadata.isSelected,
@@ -131,7 +120,6 @@ export const {
 } = Vuex.createNamespacedHelpers<GarmentState, GarmentGetters, GarmentMutations, GarmentActions>('GarmentCollection');
 
 export const GarmentCollection = {
-    namespaced: true,
     state: state,
     getters: getters,
     mutations: mutations,

@@ -1,9 +1,8 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-typed";
-import {Getter, Action} from "vuex-class";
 import * as Logger from "js-logger";
 import { Dispatcher } from "vuex-type-helper";
-//import * as garmentCollection from "../../vuex-typescript-store/modules/garmentCollections";
+import {Getter, Action} from "vuex-class";
 import { GarmentActions } from "../../store/modules/garments";
 let template = require("./navbar.vue");
 
@@ -11,19 +10,16 @@ let template = require("./navbar.vue");
   mixins: [template],
   methods: {
       onClickLogin () {
-        console.log("Navabar onclickLogin " ,  this.$store);
-        //garmentCollection.disPatchFetchGarmentCollection(this.$store, "red+dress");
-        this.$store.dispatch<Dispatcher<GarmentActions>>({
-            type: 'GarmentCollection/fetchGarmentCollection',
-            garmentType:  "red+dress"
-        });
+        console.log('$store =', this.$store)
 
-        //this.fetchGarmentCollection({garmentType: 'red+dress'});
+        this.$store.dispatch<Dispatcher<GarmentActions>>({
+          type: 'fetchGarmentCollection',
+          garmentType: 'red+dress'
+        });
       }
   }
 })
 export default class NavBar extends Vue {
-  @Action('GarmentCollection/fetchGarmentCollection') fetchGarmentCollection:any;
   collapsed: boolean = true;
 
   me: "me";
