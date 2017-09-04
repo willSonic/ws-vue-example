@@ -6,16 +6,17 @@ import { Component } from "vue-typed";
 import VueRouter from "vue-router";
 import * as Logger from "js-logger";
 
-import { mapGetters, mapActions} from "vuex";
+import { mapGetters, mapActions, ActionContext, Store } from "vuex";
 
 let Config = require("./config.json");
 
+//import store from "./vuex-typescript-store";
 import store from "./store";
 
 import Navbar from "./components/navbar";
 import Foot from "./components/foot";
 
-import {router} from "./routes";
+import { router } from "./routes";
 
 import "./style.scss";
 let template = require("./main.vue");
@@ -39,6 +40,7 @@ Vue.config.errorHandler = function (err, vm, info) {
   },
   router: router
 })
+
 class App extends Vue {
   mounted () {
     Logger.log("mounted");

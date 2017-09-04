@@ -5,6 +5,7 @@
     <router-link to="/" class="navbar-brand">
     <img src="../../assets/images/logo.png" alt="brand" class="img-responsive"> {{ "navbar-title" | format-message }}
     </router-link>
+      <button @click="onClickLogin" >Search</button>
     </div>
   </div>
 </nav>

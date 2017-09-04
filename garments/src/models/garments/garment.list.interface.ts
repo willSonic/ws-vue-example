@@ -1,9 +1,10 @@
 /**
  * Created by willstreeter on 9/2/17.
  */
- import IGarment from './garment.interface'
+ import { IGarment } from  "./garment.interface";
 export interface IGarmentList {
   id: string;
+  isSelected:boolean;
   offset: number;
   limit: number;
   total: number;
