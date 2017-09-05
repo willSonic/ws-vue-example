@@ -1,7 +1,7 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-typed";
 import * as Logger from "js-logger";
-import { Dispatcher } from "vuex-type-helper";
+import { Dispatcher} from "vuex-type-helper";
 import { Getter, Action } from "vuex-class";
 import { GarmentActions } from "../../store/modules/garments";
 let template = require("./navbar.vue");

@@ -1,0 +1,74 @@
+
+$body-black:#1e1e1e;
+$body-color: #485156;
+$nav-color: #3e464c;
+$steel-white:#DBDBDB;
+$dusty-white: #f5f1f5;
+$baby-powder:#fefefe;
+
+$noc-color:#0082CB; //noc
+$sonic-color:#7db500; //noc
+$rnb-color: #5B3569;
+$rnb-soulsonic-color: #B66DD9;
+$rnb-funktastic-color: #A71168;
+$rnb-urbangroove-color: #9F00AE;
+$rnb-mo-town-color: #34163D;
+$rap-color: #04829B;
+$rap-boombap-color: #0583F2;
+$rap-dirtysouth-color: #2C80AB;
+$rap-headknocker-color: #375CC9;
+$rap-oldskool-color: #53AEFF;
+$rap-hyphy-color: #626879;
+$rap-westconnect-color: #60A1D2;
+$rap-grime-color: #0A507F;
+$rock-color: #D73117;
+$rock-indie-color: #FF4000;
+$rock-poprock-color: #FF0262;
+$rock-garage-color: #C2453E;
+$rock-darkhorse-color: #D9304F;
+$rock-schoolhouse-color: #AA272F;
+$folk-color: #6A8F32;
+$folk-blues-color: #8C851C;
+$folk-country-color: #B0CD83;
+$folk-cornershop-color: #005C26;
+$reggae-color: #D5A216;
+$reggae-roots-color: #619140;
+$reggae-ragga-color: #B31C1A;
+$reggae-ska-color: #4D7C79;
+$pop-color: #C12B6B;
+$pop-powerpop-color: #D984B3;
+$pop-sophistipop-color: #BF5E70;
+$pop-synthisim-color: #E65793;
+$beatfree-color: #566673;
+$beatfree-spokenword-color: #8FAABF;
+$beatfree-crooner-color: #BFE2FF;
+
+$defaultToolBarHeight: 64px;
+$border-reg-color: #7d7d7d;
+$noc-blue:#0082CB;
+$input-label-color:lighten(#3b5998, 10%);
+$cream-custard: #f3efe0;
+$input-color:#c4c4c4;
+
+
+
+
+    // ------------------------------
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding:  0;
+  font-size: 62.5%;
+}
+
+p{
+  font-weight:300;
+  font-family: 'Gotham-Light';
+}
+h1, h2, h3, h4, h5, h6{
+  color:$noc-blue;
+  font-weight:900;
+  font-family: 'Gotham-Medium';
+}
+
+

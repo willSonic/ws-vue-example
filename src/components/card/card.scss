@@ -1,0 +1,71 @@
+
+@import "../../styles/variables";
+.card {
+  display: inline-block;
+  align-self: center;
+  background: $baby-powder;
+  box-shadow: 0px 5px 18px 2.5px $body-black;
+  border-radius: 4px;
+  padding: 15px;
+  text-align: left;
+  width: 360px;
+  margin: 20px;
+  vertical-align: top;
+  .card-content {
+    padding: 10px;
+    
+    &.card-highlight {
+      border: 3px solid $noc-blue;
+      border-radius: 4px;  
+    }
+    
+      header {
+        margin: 10px 0px;
+      }
+      main {
+        p {
+          @include font-size(1);
+          opacity: 0.85;
+          color:$nav-color;
+          padding: 20px 10px;
+        }
+        button {
+          padding:15px 30px;
+          border-radius: 3px;
+          background: $noc-blue;
+          color: $steel-white;
+          font-weight: 100;
+          @include font-size(1);
+          border:none;
+          margin: 10px 0px;
+          text-transform: uppercase;
+          box-shadow: 0px 10px 5px -5px #aaa;
+          transition: linear .15s;
+          &:hover {
+            color:$baby-powder;
+            box-shadow: 0px 20px 18px -10px #aaa;
+            transform: translate(0px, -2.5px);
+            transition: linear .15s;
+          }
+        }
+    }
+    footer {
+      i {
+        opacity: 0.3;
+        font-size: 20px;
+        margin: 10px 5px; 
+      }
+    }
+  }
+  
+}
+
+
+label {
+  &.title {
+    @include font-size(2);
+    font-weight: 200;
+    opacity: 0.7;
+  }
+}
+
